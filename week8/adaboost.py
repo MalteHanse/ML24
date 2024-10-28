@@ -81,6 +81,7 @@ class AdaBoostClassifier():
         if len(self.models) == 0:
             return np.zeros(X.shape[0])
         ### YOUR CODE HERE 3-8 lines
+        
         ### END CODE
         return pred
         
