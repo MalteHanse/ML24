@@ -262,13 +262,23 @@ class NetClassifier():
             train_acc = self.score(X_train, y_train)
             val_acc = self.score(X_val, y_val)
             
+            if hist['val_acc'] == []:
+                print(hist['val_acc'])
+                hist['val_acc'].append(val_acc)
+            
+            else:
+                print(hist['val_acc'])
+                if val_acc > max(hist['val_acc']):
+                    hist['val_acc'].append(val_acc)
+                else:
+                    hist['val_acc'].append(max(hist['val_acc']))
+
             hist['train_loss'].append(train_loss)
             hist['train_acc'].append(train_acc)
             hist['val_loss'].append(val_loss)
-            hist['val_acc'].append(val_acc)
         
         # Print progress
-            print(f"Epoch {epoch+1}/{epochs}: Train Loss = {train_loss:.4f}, Train Acc = {train_acc:.4f}, Val Loss = {val_loss:.4f}, Val Acc = {val_acc:.4f}")
+            #print(f"Epoch {epoch+1}/{epochs}: Train Loss = {train_loss:.4f}, Train Acc = {train_acc:.4f}, Val Loss = {val_loss:.4f}, Val Acc = {val_acc:.4f}")
         ### END CODE
         
         # hist dict should look like this with something different than none
