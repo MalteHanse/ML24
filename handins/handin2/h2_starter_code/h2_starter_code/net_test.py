@@ -39,6 +39,7 @@ def digits_test(hidden_size=256, epochs=30, batch_size=32, lr=0.1, c=1e-4):
     ax[1].set_xlabel('Epoch', fontsize=16)
     plt.legend(fontsize=12)
     export_fig(fig, 'epoch_plots.png')
+    plt.show()
     return net
 
 if __name__ == '__main__':
